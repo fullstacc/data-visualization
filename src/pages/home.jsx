@@ -12,6 +12,7 @@ export default function Home() {
         This page contains data visualizations produced using D3.js. The webpage application is developed using React, and 
         is deployed using Glitch (for demonstration purposes).
       </p>
+      <svg style={{height: '100%', width: '100%'}}></svg>
       <BarChart/>
     </>
   );
