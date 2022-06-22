@@ -2,7 +2,7 @@ import * as React from "react";
 import  DataTable  from "../components/DataTable";
 
 
-const Home = () => {
+const Home = ({data, dataStatus}) => {
   const hello = "Data Visualizations";
 
   return (
@@ -13,7 +13,7 @@ const Home = () => {
         is deployed using Glitch (for demonstration purposes).
       </p>
       <svg style={{height: '100%', width: '100%'}}></svg>
-      <DataTable/>
+      <DataTable data={data} />
     </>
   );
 }
