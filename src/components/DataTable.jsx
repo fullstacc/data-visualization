@@ -19,7 +19,8 @@ const cols = [
 ];
 
 // Table Component
-const DataTable = () => {
+const DataTable = ({data}) => {
+  
   const margin = {
     top: 30,
     right: 20,
@@ -27,31 +28,33 @@ const DataTable = () => {
     left: 20,
   };
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   // use this to display the table
-  const [winners, setWinners] = useState([]);
+  // const [winners, setWinners] = useState([]);
 
   const d3Chart = useRef();
 
 
   // this will run once, to load the data
-  useEffect(() => {
-    // go fetch the data using d3.csv()
-    d3.csv(dataSource)
-      .then((d) => {
-        setData(d);
+//   useEffect(() => {
+//     // go fetch the data using d3.csv()
+//     d3.csv(dataSource)
+//       .then((d) => {
+//         setData(d);
         
-        if (data.length > 1) {
-          console.log("data is loaded", data);
-        }
-        // tabulate(data, cols)
-        // reactTabulate(data)
-      })
-      .catch((e) => console.log(e));
-  }, []); // end useEffect
+//         if (data.length > 1) {
+//           console.log("data is loaded", data);
+//         }
+//         // tabulate(data, cols)
+//         // reactTabulate(data)
+//       })
+//       .catch((e) => console.log(e));
+//   }, []); // end useEffect
 
 
-
+if (data.length>1){
+  console.log('we have the data',data)
+  const cols = data.columns
   return (
     <div >
       <table>
@@ -77,6 +80,15 @@ const DataTable = () => {
         </table>
     </div>
   );
+  
+}
+  else {
+    return (
+    <div>
+      Data not yet loaded
+      </div>)
+  }
+  
 };
 
 export default DataTable;

@@ -16,18 +16,17 @@ export default function App() {
   const [dataStatus, setDataStatus] = useState('not loaded')
 
   const fetchAndSetData = () => {
-    setData(dataService.getData());
+    const dataToFetch = dataService.getData().then(data => setData(data))
+    console.log('data is set!',data)
   };
 
   // fetch initial state; data source is retrieved at the
   // root and state is passed to the components requiring it
   useEffect(() => {
     fetchAndSetData();
+    console.log('data is now',data)
   }, []);
   
-  if (!data) {
-    
-  }
 
   return (
     <>
