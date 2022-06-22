@@ -1,8 +1,8 @@
 import * as React from "react";
-import  BarChart  from "../components/BarChart";
+import  DataTable  from "../components/DataTable";
 
 
-export default function Home() {
+const Home = () => {
   const hello = "Data Visualizations";
 
   return (
@@ -13,7 +13,9 @@ export default function Home() {
         is deployed using Glitch (for demonstration purposes).
       </p>
       <svg style={{height: '100%', width: '100%'}}></svg>
-      <BarChart/>
+      <DataTable/>
     </>
   );
 }
+
+export default Home
