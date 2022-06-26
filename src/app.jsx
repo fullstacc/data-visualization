@@ -14,6 +14,7 @@ import "./styles/styles.css";
 export default function App() {
   const [data, setData] = useState([]);
   const [dataStatus, setDataStatus] = useState('not loaded')
+  const [visual, setVisual] = useState('')
 
   const fetchAndSetData = () => {
     const dataToFetch = dataService.getData().then(data => setData(data))
@@ -31,7 +32,9 @@ export default function App() {
   return (
     <>
       <Home data={data}
-        dataStatus={dataStatus}/>
+        dataStatus={dataStatus}
+        visual={visual}
+        setVisual={setVisual}/>
     </>
   );
 }
