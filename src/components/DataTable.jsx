@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import React, { useRef, useEffect, useState } from "react";
+import "./DataTable.css"
 
 // It took way too long to realize I don't need to make this a d3 table
 
@@ -21,39 +22,19 @@ const cols = [
 // Table Component
 const DataTable = ({data}) => {
   
-  const margin = {
-    top: 30,
-    right: 20,
-    bottom: 30,
-    left: 20,
-  };
-
-  // const [data, setData] = useState([]);
-  // use this to display the table
-  // const [winners, setWinners] = useState([]);
-
-  const d3Chart = useRef();
+  // const margin = {
+  //   top: 30,
+  //   right: 20,
+  //   bottom: 30,
+  //   left: 20,
+  // };
 
 
-  // this will run once, to load the data
-//   useEffect(() => {
-//     // go fetch the data using d3.csv()
-//     d3.csv(dataSource)
-//       .then((d) => {
-//         setData(d);
-        
-//         if (data.length > 1) {
-//           console.log("data is loaded", data);
-//         }
-//         // tabulate(data, cols)
-//         // reactTabulate(data)
-//       })
-//       .catch((e) => console.log(e));
-//   }, []); // end useEffect
+  // const d3Chart = useRef();
+
 
 
 if (data.length>1){
-  console.log('we have the data',data)
   const cols = data.columns
   return (
     <div >
@@ -65,7 +46,7 @@ if (data.length>1){
         </tr>
       {data.map((entry) => {
         return <tr> 
-        <td>{entry.Date}</td>
+        <td>{entry["Date"]}</td>
           <td>{entry["Host city"]}</td>
           <td>{entry["Language"]}</td>
           <td>{entry["maxPoints"]}</td>

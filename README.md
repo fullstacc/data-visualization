@@ -35,6 +35,8 @@ Technologies incorporated:
 
 **Open Tasks**
 
+[x] ~~1.2.1 - Separate data retrieval into its own service/component~~
+
 [x] ~~2.1.2 - Use d3.select() to fetch the csv data and return it rendered in the browser~~
 
 [ ] 2.2.2 - Create pulldown tab to select a visualization
