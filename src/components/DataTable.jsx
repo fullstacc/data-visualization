@@ -6,18 +6,12 @@ import "./DataTable.css";
 
 // Table Component
 const DataTable = ({ data }) => {
-  // const margin = {
-  //   top: 30,
-  //   right: 20,
-  //   bottom: 30,
-  //   left: 20,
-  // };
+
 
   // const d3Chart = useRef();
 
   if (data.length > 1) {
     const cols = data.columns;
-    console.log('these are the columns!', cols)
     return (
       <div>
         <table>
@@ -28,7 +22,6 @@ const DataTable = ({ data }) => {
             })}
           </tr>
           {data.map((entry) => {
-              console.log('first data entry',entry)
               
               
               // this logic addresses the fact that in 1969, there were (3) winners 

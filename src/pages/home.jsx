@@ -1,13 +1,18 @@
 import * as React from "react";
 import DataTable from "../components/DataTable";
+import Visualization from "../components/Visualization"
 
 const Home = ({ data, dataStatus, visual, setVisual }) => {
   const title = "Data Visualizations";
   
-  const options = ['table',
-                   'bar chart',
-                  'heat-map',
-                  'pie-chart']
+  console.log('this is visual!', visual)
+  
+  
+  // these options represent which visualization is available
+  // const options = ['table',
+  //                  'bar chart',
+  //                 'heat-map',
+  //                 'pie-chart']
 
   return (
     <>
@@ -17,9 +22,10 @@ const Home = ({ data, dataStatus, visual, setVisual }) => {
       <label for="pulldown">Choose a visualization: </label>
 
       <select name="pulldown" id="viz-pulldown">
-        {options.map((option) => {
+        {visual.map((option) => {
           return (
-          <option value={option}> {option}</option>
+          
+            <option key={option.label} value={option.label}> {option.label} </option>
           )
           
         })}
@@ -31,10 +37,13 @@ const Home = ({ data, dataStatus, visual, setVisual }) => {
         demonstration purposes).
       </p>
       
-      <DataTable data={data} />
+      <Visualization visual={visual} data={data}/>
       
     </>
   );
 };
 
 export default Home;
+
+
+// <DataTable data={data} />
