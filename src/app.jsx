@@ -13,28 +13,25 @@ import "./styles/styles.css";
 
 export default function App() {
   const [data, setData] = useState([]);
-  const [dataStatus, setDataStatus] = useState('not loaded')
-  const [visual, setVisual] = useState('')
+  const [dataStatus, setDataStatus] = useState("not loaded");
 
+  // go get the data
   const fetchAndSetData = () => {
-    const dataToFetch = dataService.getData().then(data => setData(data))
-    console.log('data is set!',data)
+    const dataToFetch = dataService.getData().then((data) => setData(data));
   };
 
   // fetch initial state; data source is retrieved at the
   // root and state is passed to the components requiring it
   useEffect(() => {
     fetchAndSetData();
-    console.log('data is now',data)
   }, []);
-  
 
   return (
     <>
-      <Home data={data}
+      <Home
+        data={data}
         dataStatus={dataStatus}
-        visual={visual}
-        setVisual={setVisual}/>
+      />
     </>
   );
 }
