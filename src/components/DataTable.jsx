@@ -17,11 +17,11 @@ const DataTable = ({ data }) => {
         <table>
           <tbody>
           <tr>
-            {cols.map((col) => {
-              return <th>{col}</th>;
+            {cols.map((col, i) => {
+              return <th key={i}>{col}</th>;
             })}
           </tr>
-          {data.map((entry) => {
+          {data.map((entry, i) => {
               
               
               // this logic addresses the fact that in 1969, there were (3) winners 
@@ -36,7 +36,7 @@ const DataTable = ({ data }) => {
              
               
               
-            return (<tr>
+            return (<tr key={i}>
               <td>{entryYear}</td>
               <td>{hostCity}</td>
               <td>{date}</td>

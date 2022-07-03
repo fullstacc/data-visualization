@@ -1,49 +1,40 @@
 import * as React from "react";
 import DataTable from "../components/DataTable";
-import Visualization from "../components/Visualization"
+import Visualization from "../components/Visualization";
+import Form from "../components/Form";
+import {useState} from "react";
 
-const Home = ({ data, dataStatus, visual, setVisual }) => {
-  const title = "Data Visualizations";
+const Home = ({ data, dataStatus }) => {
+  const vizOptions = [
+    { label: "", value: "none" },
+    { label: "table", value: "table" },
+    { label: "bar chart", value: "bar chart" },
+    { label: "heat map", value: "heat map" },
+    { label: "pie chart", value: "pie chart" },
+  ];
   
-  console.log('this is visual!', visual)
+  const [currentVisual, setCurrentVisual] = useState("")
   
   
-  // these options represent which visualization is available
-  // const options = ['table',
-  //                  'bar chart',
-  //                 'heat-map',
-  //                 'pie-chart']
+  // method for setting state based on pulldown
+  const handleVisual = (event) => {
+    console.log(event.target.value);
+    setCurrentVisual(event.target.value);
+    console.log('currentVisual is now ', currentVisual)
+  };
+  
 
   return (
     <>
-      <h1 className="title">{title}</h1>
-
+      <Form vizOptions={vizOptions}
+        currentvisual={currentVisual}
+        handleVisual={handleVisual}/>
       
-      <label for="pulldown">Choose a visualization: </label>
-
-      <select name="pulldown" id="viz-pulldown">
-        {visual.map((option) => {
-          return (
-          
-            <option key={option.label} value={option.label}> {option.label} </option>
-          )
-          
-        })}
-      </select>
-      
-      <p>
-        This page contains data visualizations produced using D3.js. The webpage
-        application is developed using React, and is deployed using Glitch (for
-        demonstration purposes).
-      </p>
-      
-      <Visualization visual={visual} data={data}/>
-      
+      <Visualization currentVisual={currentVisual} data={data} />
     </>
   );
 };
 
 export default Home;
-
 
 // <DataTable data={data} />

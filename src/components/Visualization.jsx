@@ -1,8 +1,9 @@
 import DataTable from "./DataTable";
 
 
-const Visualization = ({visual, data}) => {
-  if (visual) {
+// TODO: refactor this to pick a visualization in a more programmatical way
+const Visualization = ({currentVisual, data}) => {
+  if (currentVisual=='table') {
     return (
     <div>
         <DataTable data={data}/>
